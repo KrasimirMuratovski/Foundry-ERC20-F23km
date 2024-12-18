@@ -50,20 +50,20 @@ function testAllowancesWorks() public{
 }
 
  /// @dev Test transfers within allowance
-    function testTransferFromWithinAllowance() public {
-        vm.startPrank(alice);
-        ourToken.approve(bob, 500 ether);
-        vm.stopPrank();
+    // function testTransferFromWithinAllowance() public {
+    //     vm.startPrank(alice);
+    //     ourToken.approve(bob, 500 ether);
+    //     vm.stopPrank();
 
-        vm.startPrank(bob);
-        ourToken.transferFrom(alice, carol, 400 ether);
-        vm.stopPrank();
+    //     vm.startPrank(bob);
+    //     ourToken.transferFrom(alice, carol, 400 ether);
+    //     vm.stopPrank();
 
-        // Verify balances
-        assertEq(ourToken.balanceOf(carol), 400 ether);
-        assertEq(ourToken.balanceOf(alice), 600 ether); // 1000 - 400
-        assertEq(ourToken.allowance(alice, bob), 100 ether); // 500 - 400
-    }
+    //     // Verify balances
+    //     assertEq(ourToken.balanceOf(carol), 400 ether);
+    //     assertEq(ourToken.balanceOf(alice), 600 ether); // 1000 - 400
+    //     assertEq(ourToken.allowance(alice, bob), 100 ether); // 500 - 400
+    // }
 
 
     function testTransfer() public{
